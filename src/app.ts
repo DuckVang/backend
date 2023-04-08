@@ -8,7 +8,7 @@ import general from "./config/general.config";
 
 import cors from "cors";
 import morgan from "morgan";
-
+import bodyParser from "body-parser";
 import { indexRoute } from "./routes";
 
 const mongoString: string = db.host;
@@ -18,6 +18,7 @@ const isProduction = process.env.NODE_ENV === "production";
 const app = express();
 
 app.use(express.json());
+app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan(":method :url :status :res[content-length]"));
 
