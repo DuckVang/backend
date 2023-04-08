@@ -1,19 +1,30 @@
 import { Router } from "express";
 import mongoose from "mongoose";
+import { Request, Response } from "express";
 
-
-import { UserModel } from "../../models/user";
+import { User, UserModel } from "../../models/user";
 const router = Router();
 
-router.get("/", function (req, res, next) {
-    // UserModel.findById(req.payload.id)
-    //   .then(function (user) {
-    //     if (!user) {
-    //       return res.sendStatus(401);
-    //     }
-    //     return res.json({ user: user.toAuthJSON() });
-    //   })
-    //   .catch(next);
-    res.send("users")
+interface UserRequest extends Request {
+  name?: string;
+}
+interface SearchRequest extends Request {
+  query: any;
+  limit?: number;
+  page?: number;
+}
+
+router.get("/", async function (req, res) {
+  // const users = await UserModel
 });
+router.get("/:id", async function (req: UserRequest, res, next) {
+  const user = await UserModel.findOne({ name: "pog" });
+
+  res.send(user);
+});
+router.post("/:id");
+router.delete("/:id");
+router.get("/search", async function (req: SearchRequest, res) {});
+
+router.post("/",)
 export { router as userRouter };
