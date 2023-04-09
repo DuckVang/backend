@@ -8,7 +8,7 @@ import general from "./config/general.config";
 
 import cors from "cors";
 import morgan from "morgan";
-import bodyParser from "body-parser";
+import bodyParser, { urlencoded } from "body-parser";
 import { indexRoute } from "./routes";
 
 const mongoString: string = db.host;
@@ -19,6 +19,7 @@ const app = express();
 
 app.use(express.json());
 app.use(bodyParser.json());
+app.use(urlencoded({ extended: true }));
 app.use(cors());
 app.use(morgan(":method :url :status :res[content-length]"));
 
