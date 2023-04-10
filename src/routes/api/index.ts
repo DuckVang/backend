@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { userRouter } from "./users.route";
-import { productsRouter } from "./services.route";
+import { productsRouter } from "./products.route";
 import { profilesRouter } from "./profiles.route";
 
 import { nextTick } from "process";
