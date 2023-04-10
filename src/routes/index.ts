@@ -1,11 +1,10 @@
-import { Router } from "express";
+import { Router, Response } from "express";
 import { apiRouter } from "./api";
+import { authRouter } from "./api/auth.route";
 const router = Router();
 
 router.use("/api", apiRouter);
-router.use("/", (req,res) =>{
+router.use("/auth", authRouter)
 
-    res.send("welcome to index router")
-})
 
 export { router as indexRoute };

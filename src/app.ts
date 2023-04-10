@@ -2,7 +2,7 @@ import express, { ErrorRequestHandler, Request, Response } from "express";
 import config from "config";
 import mongoose from "mongoose";
 
-import { User, UserModel } from "./models/user";
+import { User, UserModel } from "./models/user.model";
 import db from "./config/db.config";
 import general from "./config/general.config";
 
@@ -13,7 +13,6 @@ import { indexRoute } from "./routes";
 
 const mongoString: string = db.host;
 
-const isProduction = process.env.NODE_ENV === "production";
 
 const app = express();
 
