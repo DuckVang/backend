@@ -58,8 +58,8 @@ router.get("/:id", async function (req: UserRequest, res, next) {
 });
 router.delete("/:id", async function (req: UserRequest, res) {
   try {
-    const deleted = await UserModel.findByIdAndDelete(req.id);
-    res.send(deleted).status(204);
+    const deleted = await UserModel.findByIdAndDelete(req.params.id);
+    res.json(deleted).status(204);
   } catch (error) {
     res.status(400).send({ message: error });
   }
