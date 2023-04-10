@@ -47,8 +47,8 @@ router.post(
   }
 );
 
-router.get("/:id", async function (req: UserRequest, res, next) {
-  console.log(req)
+router.get("/:id", async function (req: Request, res, next) {
+  
   try {
     const user = await UserModel.findById(req.params.id);
     res.send(user).status(200);
