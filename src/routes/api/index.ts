@@ -1,19 +1,17 @@
 import { Router } from "express";
-import { userRouter } from "./users";
-import { serviceRouter } from "./services";
-import { profilesRouter } from "./profiles";
-import { tagsRouter } from "./tags";
+import { userRouter } from "./users.route";
+import { productsRouter } from "./services.route";
+import { profilesRouter } from "./profiles.route";
+import { tagsRouter } from "./tags.route";
 import { nextTick } from "process";
 
 const router = Router();
 
 router.use("/users", userRouter);
 router.use("/tags", tagsRouter);
-router.use("/services", serviceRouter);
-router.use("/profiles", profilesRouter);
+router.use("/products", productsRouter);
 
-router.use("/", (req, res, next) => {
-  res.send("welcome to api router");
-});
+
+
 
 export { router as apiRouter };

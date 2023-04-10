@@ -7,4 +7,4 @@ const router = Router();
 router.get("/", function (req, res, next) {
     res.send("services")
 });
-export { router as serviceRouter };
+export { router as productsRouter };
