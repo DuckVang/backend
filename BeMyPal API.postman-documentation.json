@@ -1,0 +1,1119 @@
+{
+	"info": {
+		"_postman_id": "70ffd36d-7848-44a0-8c34-75cce360b6b6",
+		"name": "BeMyPal API",
+		"description": "# Introduction\n\nAPI for my BeMyPal application (VYP project)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21422082"
+	},
+	"item": [
+		{
+			"name": "v0",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Joseph",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "test@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "test1234",
+											"type": "text"
+										},
+										{
+											"key": "passwordConfirm",
+											"value": "test1234",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8005/auth/register",
+									"host": [
+										"localhost"
+									],
+									"port": "8005",
+									"path": [
+										"auth",
+										"register"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								},
+								"description": "Register user to the app"
+							},
+							"response": [
+								{
+									"name": "Register",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "name",
+													"value": "Joseph",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "test@gmail.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "test1234",
+													"type": "text"
+												},
+												{
+													"key": "passwordConfirm",
+													"value": "test1234",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "localhost:8005/auth/register",
+											"host": [
+												"localhost"
+											],
+											"port": "8005",
+											"path": [
+												"auth",
+												"register"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "63"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3f-h4u5QR5VvpReQcirBqxOywIUCQg\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 10 Apr 2023 09:53:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"registered in\",\n    \"accessToken\": \"testAccessToken1234\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "test@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "test1234",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8005/auth/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8005",
+									"path": [
+										"auth",
+										"login"
+									]
+								},
+								"description": "Logging in the user"
+							},
+							"response": [
+								{
+									"name": "Login",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "email",
+													"value": "joseph@gmail.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "joseph1234",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "localhost:8005/auth/login",
+											"host": [
+												"localhost"
+											],
+											"port": "8005",
+											"path": [
+												"auth",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "247"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"f7-uCCFHB7we2SOt5l6pa2kkvHzq/I\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 10 Apr 2023 10:51:38 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"logged in\",\n    \"accessToken\": \"testAccessToken1234\",\n    \"data\": {\n        \"user\": {\n            \"_id\": \"64295328c4f693ea84a3e16b\",\n            \"name\": \"Joseph\",\n            \"createdAt\": \"2023-04-10T12:14:39.000Z\",\n            \"email\": \"joseph@gmail.com\",\n            \"object\": \"user\",\n            \"updatedAt\": \"2023-04-10T12:15:18.000Z\"\n        }\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Return all users",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": [
+								{
+									"name": "Return all users",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:8005/api/users",
+											"host": [
+												"localhost"
+											],
+											"port": "8005",
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "341"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"155-XbwZ4Qclw8xdv2Y6VRUI/h3IXg8\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 10 Apr 2023 10:16:07 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"_id\": \"64295328c4f693ea84a3e16b\",\n        \"name\": \"Joseph\",\n        \"createdAt\": \"2023-04-10T12:14:39.000Z\",\n        \"email\": \"joseph@gmail.com\",\n        \"object\": \"user\",\n        \"updatedAt\": \"2023-04-10T12:15:18.000Z\"\n    },\n    {\n        \"_id\": \"6433e107dff895177f119eb9\",\n        \"object\": \"user\",\n        \"name\": \"Carl\",\n        \"email\": \"carl@gmail.com\",\n        \"createdAt\": \"2023-04-10T10:12:23.393Z\",\n        \"updatedAt\": \"2023-04-10T10:12:23.393Z\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Return an user by ID",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": [
+								{
+									"name": "Return an user by ID",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:8005/api/users/:id",
+											"host": [
+												"localhost"
+											],
+											"port": "8005",
+											"path": [
+												"api",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "64295328c4f693ea84a3e16b"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "171"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"ab-BCaOL5T+aCaVcyKHGL6JlyIHnz4\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 10 Apr 2023 10:32:10 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"_id\": \"64295328c4f693ea84a3e16b\",\n    \"name\": \"Joseph\",\n    \"createdAt\": \"2023-04-10T12:14:39.000Z\",\n    \"email\": \"joseph@gmail.com\",\n    \"object\": \"user\",\n    \"updatedAt\": \"2023-04-10T12:15:18.000Z\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Create a new user",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8005/api/users",
+									"host": [
+										"localhost"
+									],
+									"port": "8005",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create a new user",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "name",
+													"value": "Carl",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "carl@gmail.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "carl1234",
+													"type": "text"
+												},
+												{
+													"key": "passwordConfirm",
+													"value": "carl1234",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "localhost:8005/api/users",
+											"host": [
+												"localhost"
+											],
+											"port": "8005",
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "249"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"f9-KxrAs81McU1pwiQ7kax1kUvYpEI\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 10 Apr 2023 10:12:23 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"object\": \"user\",\n    \"name\": \"Carl\",\n    \"email\": \"carl@gmail.com\",\n    \"password\": \"$2a$12$iA1fdiNewk4uhaVruqibJeoD/36BQBqcqHPSwyHZ4OZeHmH7wzJ6a\",\n    \"_id\": \"6433e107dff895177f119eb9\",\n    \"createdAt\": \"2023-04-10T10:12:23.393Z\",\n    \"updatedAt\": \"2023-04-10T10:12:23.393Z\",\n    \"__v\": 0\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete a user by ID",
+							"request": {
+								"method": "DELETE",
+								"header": []
+							},
+							"response": [
+								{
+									"name": "Delete a user by ID",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "localhost:8005/api/users/:id",
+											"host": [
+												"localhost"
+											],
+											"port": "8005",
+											"path": [
+												"api",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "6433ec92384c70355c1f856d"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "253"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"fd-PmwlSHHpey3aNFh6cd+7yR+z1Oc\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 10 Apr 2023 11:06:52 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"_id\": \"6433ec92384c70355c1f856d\",\n    \"object\": \"user\",\n    \"name\": \"George\",\n    \"email\": \"george@gmail.com\",\n    \"password\": \"$2a$12$Y1sw1fX6h/A6f1FkKf2Ah.jVz3kYuylpZHJZLSXk4QeIOeI61Brfe\",\n    \"createdAt\": \"2023-04-10T11:01:38.715Z\",\n    \"updatedAt\": \"2023-04-10T11:01:38.715Z\",\n    \"__v\": 0\n}"
+								}
+							]
+						},
+						{
+							"name": "Update an user by ID",
+							"request": {
+								"method": "PUT",
+								"header": []
+							},
+							"response": [
+								{
+									"name": "Update an user by ID",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "name",
+													"value": "Joseph2",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "localhost:8005/api/users/:id",
+											"host": [
+												"localhost"
+											],
+											"port": "8005",
+											"path": [
+												"api",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "64295328c4f693ea84a3e16b"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "172"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"ac-jMQ/rp0knjtS2fO87j7t7aZRMik\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 10 Apr 2023 10:59:17 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"_id\": \"64295328c4f693ea84a3e16b\",\n    \"name\": \"Joseph2\",\n    \"createdAt\": \"2023-04-10T12:14:39.000Z\",\n    \"email\": \"joseph@gmail.com\",\n    \"object\": \"user\",\n    \"updatedAt\": \"2023-04-10T10:59:17.088Z\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "Return list of products",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8005/api/products",
+									"host": [
+										"localhost"
+									],
+									"port": "8005",
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:8005/api/products",
+											"host": [
+												"localhost"
+											],
+											"port": "8005",
+											"path": [
+												"api",
+												"products"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "547"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"223-lHoAb1INZm6toSn/enlIVsrD558\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 10 Apr 2023 15:18:44 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"_id\": \"64342841662cddfcfb4a1c13\",\n        \"object\": \"product\",\n        \"user\": \"6433e107dff895177f119eb9\",\n        \"name\": \"!!!COOL WEB DESIGNS FOR 99 cents\",\n        \"description\": \"I wil make a bombastic website for you\",\n        \"createdAt\": \"2023-04-10T15:16:17.469Z\",\n        \"updatedAt\": \"2023-04-10T15:16:17.469Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"643428670800bf10b8d74c5b\",\n        \"object\": \"product\",\n        \"user\": \"6433e107dff895177f119eb9\",\n        \"name\": \"!!!COOL PRODUCT DESIGNS FOR 99 cents\",\n        \"description\": \"I wil make a bombastic product for you\",\n        \"createdAt\": \"2023-04-10T15:16:55.721Z\",\n        \"updatedAt\": \"2023-04-10T15:16:55.721Z\",\n        \"__v\": 0\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Create a product",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "userId",
+											"value": "6433e107dff895177f119eb9",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "!!!COOL PRODUCT DESIGNS FOR 99 cents ",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "I wil make a bombastic product for you",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8005/api/products",
+									"host": [
+										"localhost"
+									],
+									"port": "8005",
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "userId",
+													"value": "6433e107dff895177f119eb9",
+													"type": "text"
+												},
+												{
+													"key": "name",
+													"value": "!!!COOL PRODUCT DESIGNS FOR 99 cents ",
+													"type": "text"
+												},
+												{
+													"key": "description",
+													"value": "I wil make a bombastic product for you",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "localhost:8005/api/products",
+											"host": [
+												"localhost"
+											],
+											"port": "8005",
+											"path": [
+												"api",
+												"products"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "415"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"19f-MFFbPuvgDJk2QHvJaG3phHBCRJY\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 10 Apr 2023 15:16:55 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"object\": \"product\",\n    \"user\": {\n        \"_id\": \"6433e107dff895177f119eb9\",\n        \"object\": \"user\",\n        \"name\": \"Carl\",\n        \"email\": \"carl@gmail.com\",\n        \"createdAt\": \"2023-04-10T10:12:23.393Z\",\n        \"updatedAt\": \"2023-04-10T10:12:23.393Z\"\n    },\n    \"name\": \"!!!COOL PRODUCT DESIGNS FOR 99 cents\",\n    \"description\": \"I wil make a bombastic product for you\",\n    \"_id\": \"643428670800bf10b8d74c5b\",\n    \"createdAt\": \"2023-04-10T15:16:55.721Z\",\n    \"updatedAt\": \"2023-04-10T15:16:55.721Z\",\n    \"__v\": 0\n}"
+								}
+							]
+						},
+						{
+							"name": "Return a product by ID",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": [
+								{
+									"name": "Return an user by ID",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:8005/api/products/:id",
+											"host": [
+												"localhost"
+											],
+											"port": "8005",
+											"path": [
+												"api",
+												"products",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "64342841662cddfcfb4a1c13"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "270"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"10e-gHNW6/UwmpgghqNThnQpNmnuFgQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 10 Apr 2023 15:29:35 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"_id\": \"64342841662cddfcfb4a1c13\",\n    \"object\": \"product\",\n    \"user\": \"6433e107dff895177f119eb9\",\n    \"name\": \"!!!COOL WEB DESIGNS FOR 99 cents\",\n    \"description\": \"I wil make a bombastic website for you\",\n    \"createdAt\": \"2023-04-10T15:16:17.469Z\",\n    \"updatedAt\": \"2023-04-10T15:16:17.469Z\",\n    \"__v\": 0\n}"
+								}
+							]
+						},
+						{
+							"name": "Update a product by ID",
+							"request": {
+								"method": "PUT",
+								"header": []
+							},
+							"response": [
+								{
+									"name": "Update a product by ID",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "name",
+													"value": "!!! COLLEST WEBSITE EVER",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "localhost:8005/api/products/:id",
+											"host": [
+												"localhost"
+											],
+											"port": "8005",
+											"path": [
+												"api",
+												"products",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "64342841662cddfcfb4a1c13"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "262"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"106-5E5Xd+O/tHOqKxTJEhuLDlLNEU8\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 10 Apr 2023 15:30:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"_id\": \"64342841662cddfcfb4a1c13\",\n    \"object\": \"product\",\n    \"user\": \"6433e107dff895177f119eb9\",\n    \"name\": \"!!! COLLEST WEBSITE EVER\",\n    \"description\": \"I wil make a bombastic website for you\",\n    \"createdAt\": \"2023-04-10T15:16:17.469Z\",\n    \"updatedAt\": \"2023-04-10T15:30:58.355Z\",\n    \"__v\": 0\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete a product by ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8005/api/products/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "8005",
+									"path": [
+										"api",
+										"products",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Delete a product by ID",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "localhost:8005/api/products/:id",
+											"host": [
+												"localhost"
+											],
+											"port": "8005",
+											"path": [
+												"api",
+												"products",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "64342bf4e49284cfc88b2765"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "274"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"112-k1/wAYM6/SQdhbkdh9cD4WVjA24\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 10 Apr 2023 15:32:41 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"_id\": \"64342bf4e49284cfc88b2765\",\n    \"object\": \"product\",\n    \"user\": \"6433e107dff895177f119eb9\",\n    \"name\": \"!!!COOL PRODUCT TESTING FOR 99 cents\",\n    \"description\": \"I wil make a bombastic product for you\",\n    \"createdAt\": \"2023-04-10T15:32:04.071Z\",\n    \"updatedAt\": \"2023-04-10T15:32:04.071Z\",\n    \"__v\": 0\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
