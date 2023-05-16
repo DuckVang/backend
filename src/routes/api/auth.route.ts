@@ -14,7 +14,7 @@ import { User, UserModel } from "../../models/user.model";
 import { throttle } from "lodash";
 import { sign } from "jsonwebtoken";
 
-const tokenSecret = "09f26e402586e2faa8da4c98a35f1b20d6b033c60"
+const tokenSecret = "09f26e402586e2faa8da4c98a35f1b20d6b033c60";
 
 const router = Router();
 
@@ -28,14 +28,14 @@ router.post(
 
     try {
       const created = await UserModel.create(req.body);
-      res.send(created).status(200);
 
       res
         .json({
           message: "registered in",
-          accessToken: sign(req.body.email, tokenSecret)
-          ,
-          data: { user: created },
+          accessToken: sign(req.body.email, tokenSecret),
+          data: {
+            user: created,
+          },
         })
         .status(200);
     } catch (error) {
