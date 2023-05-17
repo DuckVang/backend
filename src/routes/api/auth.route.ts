@@ -53,18 +53,18 @@ router.post(
       });
       if (!user) throw new Error();
 
-      if (!UserModel.comparePasswords(user.password, req.body.password))
+      if (!(await UserModel.comparePasswords(user.password, req.body.password)))
         throw new Error();
 
       res
         .json({
           message: "logged in",
-          accessToken: "testAccessToken1234",
+          accessToken: sign(req.body.email, tokenSecret),
           data: { user: user },
         })
         .status(200);
     } catch (error) {
-      res.json("Invalid email or password").status(400);
+      res.json("Invalid password or mail").status(400);
     }
   }
 );
