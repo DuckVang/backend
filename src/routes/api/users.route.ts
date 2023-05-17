@@ -9,6 +9,8 @@ import {
   registerUserSchema,
 } from "../../schema/user.schema";
 import validate from "../../middlewares/validation";
+import verifyToken from "../../middlewares/verify";
+import { verify } from "jsonwebtoken";
 const router = Router();
 
 interface SignUpRequest extends Request {
@@ -25,6 +27,7 @@ interface SearchRequest extends Request {
   limit?: number;
   page?: number;
 }
+router.use(verifyToken);
 
 router.get("/", async function (req: SearchRequest, res) {
   const users: User[] = await UserModel.find({}).limit(
@@ -32,6 +35,7 @@ router.get("/", async function (req: SearchRequest, res) {
   );
   res.status(200).json(users);
 });
+
 router.post(
   "/",
   validate(registerUserSchema),
@@ -48,7 +52,6 @@ router.post(
 );
 
 router.get("/:id", async function (req: Request, res, next) {
-  
   try {
     const user = await UserModel.findById(req.params.id);
     res.json(user).status(200);
@@ -61,7 +64,7 @@ router.delete("/:id", async function (req: UserRequest, res) {
     const deleted = await UserModel.findByIdAndDelete(req.params.id);
     res.json(deleted).status(204);
   } catch (error) {
-    res.status(400).json( error );
+    res.status(400).json(error);
   }
 });
 router.put("/:id", async function (req: UserRequest, res) {
@@ -71,7 +74,7 @@ router.put("/:id", async function (req: UserRequest, res) {
     const updated: User | null = await UserModel.findById(id);
     res.status(200).json(updated);
   } catch (error) {
-    res.json(error).status(400)
+    res.json(error).status(400);
   }
 });
 router.get("/search", async function (req: SearchRequest, res) {});
