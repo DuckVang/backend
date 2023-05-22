@@ -10,20 +10,26 @@ import cors from "cors";
 import morgan from "morgan";
 import bodyParser, { urlencoded } from "body-parser";
 import { indexRoute } from "./routes";
+import path from "path";
 
 const mongoString: string = db.host;
 
 
 const app = express();
 
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "pug");
+
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(urlencoded({ extended: true }));
 app.use(cors());
 app.use(morgan(":method :url :status :res[content-length]"));
+app.use(express.static("../public"));
 
 // mongoose.connect(mongoString);
 // mongoose.set("debug", true);
+
 
 app.use("/", indexRoute);
 

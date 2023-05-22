@@ -1,13 +1,10 @@
-import { Router, Request, Response } from "express";
-import mongoose from "mongoose";
-import validate from "../../middlewares/validation";
-import {
-  CreateProductInput,
-  createProductSchema,
-} from "../../schema/product.schema";
+import {  CreateProductInput,createProductSchema,} from "../../schema/product.schema";
 import { ProductModel } from "../../models/product.model";
+import { Router, Request, Response } from "express";
 import { UserModel } from "../../models/user.model";
 import general from "../../config/general.config";
+import mongoose from "mongoose";
+import validate from "../../middlewares/validation";
 
 const router = Router();
 
