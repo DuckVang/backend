@@ -11,9 +11,9 @@ import morgan from "morgan";
 import bodyParser, { urlencoded } from "body-parser";
 import { indexRoute } from "./routes";
 import path from "path";
+import multer from "multer";
 
 const mongoString: string = db.host;
-
 
 const app = express();
 
@@ -22,14 +22,14 @@ app.set("view engine", "pug");
 
 app.use(express.json());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(urlencoded({ extended: true }));
 app.use(cors());
 app.use(morgan(":method :url :status :res[content-length]"));
-app.use(express.static("../public"));
+app.use(express.static(path.join(__dirname, "../public")));
 
 // mongoose.connect(mongoString);
 // mongoose.set("debug", true);
-
 
 app.use("/", indexRoute);
 
@@ -59,7 +59,7 @@ const start = async (): Promise<void> => {
     console.log("connected to database");
 
     app.listen(general.port, () => {
-      console.log(`Server started on http://localhost:${general.port}`);
+      console.log(`Server started on http://localhost:${general.port}/home`);
     });
   });
 };

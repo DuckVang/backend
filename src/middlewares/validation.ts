@@ -15,5 +15,5 @@ const validate =
       return res.status(400).json(error);
     }
   };
-
+const validateFile = async () => {};  
 export default validate;
