@@ -11,10 +11,10 @@ import validate from "../../middlewares/validation";
 import { GridFsStorage } from "multer-gridfs-storage";
 import multer from "multer";
 import db from "../../config/db.config";
+import upload from "../../middlewares/upload";
 const router = Router();
 
 // Set multer storage engine to the newly created object
-const upload = multer({ dest: "public/uploads/" });
 
 router.use(upload.single("image"));
 
@@ -28,6 +28,7 @@ router.post(
   async function (req: Request<{}, {}, CreateProductInput>, res: Response) {
     console.log(req.body);
     console.log(req.file?.mimetype);
+    res.json(req.file).status(200);
 
     // req.body;
     // try {
