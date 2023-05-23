@@ -1,4 +1,9 @@
-import express, { ErrorRequestHandler, Request, Response } from "express";
+import express, {
+  ErrorRequestHandler,
+  NextFunction,
+  Request,
+  Response,
+} from "express";
 import config from "config";
 import mongoose from "mongoose";
 
@@ -12,6 +17,7 @@ import bodyParser, { urlencoded } from "body-parser";
 import { indexRoute } from "./routes";
 import path from "path";
 import multer from "multer";
+import ErrorHandler from "./middlewares/errrorHandler";
 
 const mongoString: string = db.host;
 
@@ -33,24 +39,7 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 app.use("/", indexRoute);
 
-app.use(function (req, res, next) {
-  var err = new Error("Not Found");
-  res.status(404); // using response here
-  next(err);
-});
-
-app.use(function (err: Error, req: Request, res: Response) {
-  console.log(err.stack);
-
-  res.status(500);
-
-  res.json({
-    errors: {
-      message: err.message,
-      error: err,
-    },
-  });
-});
+app.use(ErrorHandler)
 
 const start = async (): Promise<void> => {
   await mongoose.connect(mongoString, () => {
