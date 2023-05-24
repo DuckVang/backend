@@ -1,4 +1,4 @@
-import { Router, response } from "express";
+import { NextFunction, Router, response } from "express";
 import mongoose, { Schema } from "mongoose";
 import { Request, Response } from "express";
 
@@ -39,14 +39,14 @@ router.get("/", async function (req: SearchRequest, res) {
 router.post(
   "/",
   validate(registerUserSchema),
-  async function (req: Request, res: Response) {
+  async function (req: Request, res: Response, next: NextFunction) {
     req.body;
 
     try {
       const created = await UserModel.create(req.body);
       res.json(created).status(200);
     } catch (error) {
-      res.json(error).status(400);
+      next(error);
     }
   }
 );
@@ -56,25 +56,28 @@ router.get("/:id", async function (req: Request, res, next) {
     const user = await UserModel.findById(req.params.id);
     res.json(user).status(200);
   } catch (error) {
-    res.status(404).json(error);
+    next(error);
   }
 });
-router.delete("/:id", async function (req: UserRequest, res) {
-  try {
-    const deleted = await UserModel.findByIdAndDelete(req.params.id);
-    res.json(deleted).status(204);
-  } catch (error) {
-    res.status(400).json(error);
+router.delete(
+  "/:id",
+  async function (req: UserRequest, res, next: NextFunction) {
+    try {
+      const deleted = await UserModel.findByIdAndDelete(req.params.id);
+      res.json(deleted).status(204);
+    } catch (error) {
+      next(error);
+    }
   }
-});
-router.put("/:id", async function (req: UserRequest, res) {
+);
+router.put("/:id", async function (req: UserRequest, res, next: NextFunction) {
   try {
     const { id } = req.params;
     await UserModel.updateOne({ id }, req.body);
     const updated: User | null = await UserModel.findById(id);
     res.status(200).json(updated);
   } catch (error) {
-    res.json(error).status(400);
+    next(error);
   }
 });
 router.get("/search", async function (req: SearchRequest, res) {});

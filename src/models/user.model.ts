@@ -9,8 +9,6 @@ import {
 import bcrypt from "bcryptjs";
 import { sign } from "jsonwebtoken";
 
-
-
 @index({ email: 1 }, { unique: true })
 @pre<User>("save", async function () {
   if (!this.isModified("password")) return;
@@ -22,6 +20,7 @@ import { sign } from "jsonwebtoken";
   },
 })
 export class User {
+  _id?: mongoose.Types.ObjectId;
   @prop({ required: false, default: "user" })
   object: string;
 
@@ -45,12 +44,6 @@ export class User {
   ) {
     return await bcrypt.compare(comparedPassword, hashedPassword);
   }
-//   async generateAuthToken() {
-
-//     const user = this
-    
-//     const token = await sign({_id: user.})
-//   }
 }
 
 export const UserModel = getModelForClass(User);

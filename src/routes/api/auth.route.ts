@@ -1,4 +1,4 @@
-import { Router, Response, Request } from "express";
+import { Router, Response, Request, NextFunction } from "express";
 import {
   loginHandler,
   registerHandler,
@@ -23,30 +23,34 @@ const router = Router();
 router.post(
   "/register",
   validate(registerUserSchema),
-  async function (req: Request, res: Response) {
-    req.body;
-
+  async function (req: Request, res: Response, next: NextFunction) {
     try {
       const created = await UserModel.create(req.body);
-
+      console.log(created);
+      res.cookie("accessToken", sign(req.body.email, tokenSecret));
+      res.cookie("userId", created._id);
       res
         .json({
           message: "registered in",
-          accessToken: sign(req.body.email, tokenSecret),
           data: {
             user: created,
           },
         })
         .status(200);
     } catch (error) {
-      res.send(error).status(400);
+      // res.json({ error: error }).status(400);
+      next(error);
     }
   }
 );
 router.post(
   "/login",
   validate(loginUserSchema),
-  async function (req: Request<{}, {}, LoginUserInput>, res: Response) {
+  async function (
+    req: Request<{}, {}, LoginUserInput>,
+    res: Response,
+    next: NextFunction
+  ) {
     try {
       const user: User | null = await UserModel.findOne({
         email: req.body.email,
@@ -56,15 +60,17 @@ router.post(
       if (!(await UserModel.comparePasswords(user.password, req.body.password)))
         throw new Error();
 
+      res.cookie("accessToken", sign(req.body.email, tokenSecret));
+      res.cookie("userId", user._id);
+
       res
         .json({
           message: "logged in",
-          accessToken: sign(req.body.email, tokenSecret),
           data: { user: user },
         })
         .status(200);
     } catch (error) {
-      res.json("Invalid password or mail").status(400);
+      next(error);
     }
   }
 );

@@ -18,6 +18,7 @@ import { indexRoute } from "./routes";
 import path from "path";
 import multer from "multer";
 import ErrorHandler from "./middlewares/errrorHandler";
+import cookieParser from "cookie-parser";
 
 const mongoString: string = db.host;
 
@@ -25,6 +26,7 @@ const app = express();
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
+app.use(cookieParser());
 
 app.use(express.json());
 app.use(bodyParser.json());
@@ -39,7 +41,7 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 app.use("/", indexRoute);
 
-app.use(ErrorHandler)
+app.use(ErrorHandler);
 
 const start = async (): Promise<void> => {
   await mongoose.connect(mongoString, () => {

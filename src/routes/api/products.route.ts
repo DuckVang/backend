@@ -3,7 +3,7 @@ import {
   createProductSchema,
 } from "../../schema/product.schema";
 import { ProductModel } from "../../models/product.model";
-import { Router, Request, Response } from "express";
+import { Router, Request, Response, NextFunction } from "express";
 import { UserModel } from "../../models/user.model";
 import general from "../../config/general.config";
 import mongoose from "mongoose";
@@ -24,51 +24,60 @@ router.get("/", async function (req, res, next) {
 });
 router.post(
   "/",
-  validate(createProductSchema),
-  async function (req: Request<{}, {}, CreateProductInput>, res: Response) {
-    console.log(req.body);
-    console.log(req.file?.mimetype);
-    res.json(req.file).status(200);
-
-    // req.body;
-    // try {
-    //   const user = await UserModel.findById(req.body.userId);
-    //   const product = await ProductModel.create({
-    //     user: user,
-    //     name: req.body.name,
-    //     description: req.body.description,
-    //   });
-    //   res.json(product).status(200);
-    // } catch (error) {
-    //   res.json(error).status(404);
-    // }
+  [validate(createProductSchema)],
+  async function (
+    req: Request<{}, {}, CreateProductInput>,
+    res: Response,
+    next: NextFunction
+  ) {
+    try {
+      const user = await UserModel.findById(req.body.userId);
+      const product = await ProductModel.create({
+        user: user,
+        name: req.body.name,
+        description: req.body.description,
+        imageID: req.file?.filename,
+      });
+      res.json(product).status(200);
+    } catch (error) {
+      next(error);
+    }
   }
 );
-router.delete("/:id", async function (req: Request, res: Response) {
-  try {
-    const deleted = await ProductModel.findByIdAndDelete(req.params.id);
-    res.json(deleted).status(204);
-  } catch (error) {
-    res.json(error).status(400);
+router.delete(
+  "/:id",
+  async function (req: Request, res: Response, next: NextFunction) {
+    try {
+      const deleted = await ProductModel.findByIdAndDelete(req.params.id);
+      res.json(deleted).status(204);
+    } catch (error) {
+      next(error);
+    }
   }
-});
-router.get("/:id", async function (req: Request, res: Response) {
-  try {
-    const user = await ProductModel.findById(req.params.id);
-    res.json(user).status(200);
-  } catch (error) {
-    res.json(error).status(400);
+);
+router.get(
+  "/:id",
+  async function (req: Request, res: Response, next: NextFunction) {
+    try {
+      const user = await ProductModel.findById(req.params.id);
+      res.json(user).status(200);
+    } catch (error) {
+      next(error);
+    }
   }
-});
-router.put("/:id", async function (req: Request, res: Response) {
-  try {
-    const { id } = req.params;
-    await ProductModel.updateOne({ id }, req.body);
-    const product = await ProductModel.findById(req.params.id);
+);
+router.put(
+  "/:id",
+  async function (req: Request, res: Response, next: NextFunction) {
+    try {
+      const { id } = req.params;
+      await ProductModel.updateOne({ id }, req.body);
+      const product = await ProductModel.findById(req.params.id);
 
-    res.json(product).status(200);
-  } catch (error) {
-    res.json(error).status(400);
+      res.json(product).status(200);
+    } catch (error) {
+      next(error);
+    }
   }
-});
+);
 export { router as productsRouter };

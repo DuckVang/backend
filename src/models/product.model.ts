@@ -28,6 +28,8 @@ export class Product {
   name!: string;
   @prop({ required: true, trim: true })
   description!: string;
+  @prop({ required: true, trim: true })
+  imageID!: string;
 }
 
 export const ProductModel = getModelForClass(Product);
