@@ -1,0 +1,22 @@
+extends layout
+
+block layout-content
+    div.View
+        form(action = "/api/products" method= "POST" enctype="multipart/form-data")
+            <input type="hidden" name="user" value="bar" />
+            label(for="name") Name
+            br
+            input(type="text" name="name")
+            br
+            label(for="description") Description 
+            br
+            input(type="text" name="description")
+            br
+            label(for="file") Image 
+            br
+            input(type="file" name="file")
+            br
+            br
+            input(type="submit" value="Upload")
+
+
