@@ -17,7 +17,7 @@ const verifyToken = async function (req: Request, res: Response, next: NextFunct
         res.status(200)
         next();
       });
-    } else res.status(401).json("Empty header");
+    } else next(error)
   };
 
 export default verifyToken;
