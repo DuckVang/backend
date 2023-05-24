@@ -16,7 +16,7 @@ const router = Router();
 
 // Set multer storage engine to the newly created object
 
-router.use(upload.single("image"));
+// router.use(upload.none());
 
 router.get("/", async function (req, res, next) {
   const products = await ProductModel.find({}).limit(general.listPerPage);
@@ -24,7 +24,7 @@ router.get("/", async function (req, res, next) {
 });
 router.post(
   "/",
-  [validate(createProductSchema)],
+  [upload.single("image"), validate(createProductSchema)],
   async function (
     req: Request<{}, {}, CreateProductInput>,
     res: Response,
