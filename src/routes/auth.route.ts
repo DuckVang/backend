@@ -2,15 +2,15 @@ import { Router, Response, Request, NextFunction } from "express";
 import {
   loginHandler,
   registerHandler,
-} from "../../controllers/auth.controller";
+} from "../controllers/auth.controller";
 import {
   LoginUserInput,
   RegisterUserInput,
   loginUserSchema,
   registerUserSchema,
-} from "../../schema/user.schema";
-import validate from "../../middlewares/validation";
-import { User, UserModel } from "../../models/user.model";
+} from "../schema/user.schema";
+import validate from "../middlewares/validation";
+import { User, UserModel } from "../models/user.model";
 import { throttle } from "lodash";
 import { sign } from "jsonwebtoken";
 
