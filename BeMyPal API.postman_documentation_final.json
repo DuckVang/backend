@@ -786,13 +786,13 @@
 							},
 							"response": [
 								{
-									"name": "New Request",
+									"name": "Create a product",
 									"originalRequest": {
 										"method": "POST",
 										"header": [],
 										"body": {
-											"mode": "urlencoded",
-											"urlencoded": [
+											"mode": "formdata",
+											"formdata": [
 												{
 													"key": "userId",
 													"value": "6433e107dff895177f119eb9",
@@ -800,13 +800,18 @@
 												},
 												{
 													"key": "name",
-													"value": "!!!COOL PRODUCT DESIGNS FOR 99 cents ",
+													"value": "Best something idk ",
 													"type": "text"
 												},
 												{
 													"key": "description",
-													"value": "I wil make a bombastic product for you",
+													"value": "pog pog",
 													"type": "text"
+												},
+												{
+													"key": "image",
+													"type": "file",
+													"src": "/Users/Minh/Pictures/Getsafe.jpg"
 												}
 											]
 										},
@@ -840,15 +845,15 @@
 										},
 										{
 											"key": "Content-Length",
-											"value": "415"
+											"value": "476"
 										},
 										{
 											"key": "ETag",
-											"value": "W/\"19f-MFFbPuvgDJk2QHvJaG3phHBCRJY\""
+											"value": "W/\"1dc-PzhAYKjh43aOsQm+A2ut/AQzRrI\""
 										},
 										{
 											"key": "Date",
-											"value": "Mon, 10 Apr 2023 15:16:55 GMT"
+											"value": "Wed, 24 May 2023 11:36:16 GMT"
 										},
 										{
 											"key": "Connection",
@@ -860,7 +865,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n    \"object\": \"product\",\n    \"user\": {\n        \"_id\": \"6433e107dff895177f119eb9\",\n        \"object\": \"user\",\n        \"name\": \"Carl\",\n        \"email\": \"carl@gmail.com\",\n        \"createdAt\": \"2023-04-10T10:12:23.393Z\",\n        \"updatedAt\": \"2023-04-10T10:12:23.393Z\"\n    },\n    \"name\": \"!!!COOL PRODUCT DESIGNS FOR 99 cents\",\n    \"description\": \"I wil make a bombastic product for you\",\n    \"_id\": \"643428670800bf10b8d74c5b\",\n    \"createdAt\": \"2023-04-10T15:16:55.721Z\",\n    \"updatedAt\": \"2023-04-10T15:16:55.721Z\",\n    \"__v\": 0\n}"
+									"body": "{\n    \"object\": \"product\",\n    \"user\": {\n        \"_id\": \"6433e107dff895177f119eb9\",\n        \"object\": \"user\",\n        \"name\": \"Carl\",\n        \"email\": \"carl@gmail.com\",\n        \"password\": \"$2a$12$iA1fdiNewk4uhaVruqibJeoD/36BQBqcqHPSwyHZ4OZeHmH7wzJ6a\",\n        \"createdAt\": \"2023-04-10T10:12:23.393Z\",\n        \"updatedAt\": \"2023-04-10T10:12:23.393Z\"\n    },\n    \"name\": \"Best something idk\",\n    \"description\": \"pog pog\",\n    \"imageID\": \"image-1684928175978.jpg\",\n    \"_id\": \"646df6b0c4132895b359b2b1\",\n    \"createdAt\": \"2023-05-24T11:36:16.029Z\",\n    \"updatedAt\": \"2023-05-24T11:36:16.029Z\",\n    \"__v\": 0\n}"
 								}
 							]
 						},
@@ -1112,8 +1117,35 @@
 							]
 						}
 					]
+				},
+				{
+					"name": "View",
+					"item": [
+						{
+							"name": "Get products list page",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "Get a product page by ID",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
 				}
 			]
+		}
+	],
+	"variable": [
+		{
+			"key": "jwt_token",
+			"value": "eyJhbGciOiJIUzI1NiJ9.YWxwaGEyQGdtYWlsLmNvbQ.dwRMuINlHewpdt2thJmhuSKaNucJO5ECinEwuts5iJw"
 		}
 	]
 }
