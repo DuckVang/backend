@@ -1,0 +1,32 @@
+extends layout
+
+block layout-content
+    div.View
+        input(type="hidden" id="productID" value=product._id)
+        div.Product
+            h3=product.name 
+            h4=product.user 
+            img(src='/uploads/'+ product.imageID  alt='login' style='width:100px; height:100px;')
+            p.description=product.description
+        div.Chat
+            h2.title Chatbox
+                div 
+                    ul#chat
+
+                div 
+                        p.control
+                            input(type='text' class='input' value='John Doe' id='userName')
+                        p.control
+                            input(type='text' class='input' placeholder='Try to say something' id='message')
+                        p.control
+                            button(id="submit") Post
+            h2.title  In voice chat 
+            div(id="users")
+            button(id="voice") Join voice chat
+
+    script(src="/javascripts/chat.js")
+
+
+
+
+

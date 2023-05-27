@@ -29,7 +29,8 @@ router.post(
 
       res.cookie("accessToken", sign(req.body.email, tokenSecret));
       res.cookie("userId", created._id);
-      res.render("form", { data: JSON.stringify(created) });
+      res.redirect("../view");
+      // res.render("home", { data: JSON.stringify(created) });
     } catch (error) {
       next(error);
     }
@@ -54,7 +55,9 @@ router.post(
 
       res.cookie("accessToken", sign(req.body.email, tokenSecret));
       res.cookie("userId", user._id);
-      res.render("form", { title: "Express", data: JSON.stringify(user) });
+      res.redirect("../view");
+
+      // res.render("home", { title: "Express", data: JSON.stringify(user) });
     } catch (error) {
       next(error);
     }

@@ -3,6 +3,7 @@ import express, {
   NextFunction,
   Request,
   Response,
+  static as expressStatic,
 } from "express";
 import config from "config";
 import mongoose from "mongoose";
@@ -19,11 +20,15 @@ import path from "path";
 import multer from "multer";
 import ErrorHandler from "./middlewares/errrorHandler";
 import cookieParser from "cookie-parser";
+import { Server } from "socket.io";
+import { addListeners } from "./socket";
 
 const mongoString: string = db.host;
 
-const app = express();
+let EXPRESS_SERVER, SOCKET_SERVER: Server;
 
+const app = express();
+app.use(expressStatic(path.join(__dirname, "public")));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 app.use(cookieParser());
@@ -49,32 +54,16 @@ const start = async (): Promise<void> => {
 
     console.log("connected to database");
 
-    app.listen(general.port, () => {
-      console.log(`Server started on http://localhost:${general.port}/home`);
+    EXPRESS_SERVER = app.listen(general.port, () => {
+      console.log(`Server started on http://localhost:${general.port}`);
     });
+    SOCKET_SERVER = new Server(EXPRESS_SERVER, { cors: { origin: "*" } });
+
+    addListeners(SOCKET_SERVER);
+    
   });
 };
 
 void start();
 
-// const port = config.get<number>("port");
-
-// app.post("/users", async (req: Request, res: Response): Promise<Response> => {
-//   console.log(req.body)
-//   const user: User = await UserModel.create({ name: req.body.name });
-//   return res.status(201).json(user);
-// });
-// app.get("/", async (req: Request, res: Response): Promise<Response> => {
-//   const user: User = await UserModel.create({ name: "pog" });
-//   return res.status(201).json(user);
-// });
-// const start = async (): Promise<void> => {
-//   await mongoose.connect(mongoString, () => {
-//     console.log("connected to database");
-
-//     app.listen(8004, () => {
-//       console.log(`Server started on port: ${8004}`);
-//     });
-//   });
-// };
-// void start();
+export { EXPRESS_SERVER, SOCKET_SERVER };

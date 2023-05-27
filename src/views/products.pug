@@ -1,0 +1,16 @@
+extends layout
+
+block layout-content
+    div.View
+        each product in products
+            div.Product
+                h3=product.name 
+                h4=product.user 
+                img(src='/uploads/'+ product.imageID  alt='login' style='width:100px; height:100px;')
+                p.description=product.description
+                form(action="/view/products/" + product._id method="GET" enctype="multipart/form-data")
+                    input(type="submit" value="Visit")
+
+
+
+
